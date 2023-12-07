@@ -76,7 +76,16 @@ class HomeScreen extends StatelessWidget {
             ),
           ),
           Gaps.v48,
-          for (var item in list) Post(info: item),
+          for (var item in list)
+            Column(
+              children: [
+                Post(info: item),
+                const Divider(
+                  height: 0,
+                  color: Colors.black12,
+                ),
+              ],
+            ),
           Gaps.v36,
         ],
       ),
