@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:nc_flutter_threads/screens/activity_screen.dart';
 import 'package:nc_flutter_threads/screens/main_navigation_screen.dart';
+import 'package:nc_flutter_threads/screens/profile_screen.dart';
 
 void main() {
   runApp(const App());

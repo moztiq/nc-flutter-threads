@@ -5,6 +5,7 @@ import 'package:nc_flutter_threads/screens/activity_screen.dart';
 import 'package:nc_flutter_threads/screens/home_screen.dart';
 import 'package:nc_flutter_threads/screens/profile_screen.dart';
 import 'package:nc_flutter_threads/screens/search_screen.dart';
+import 'package:nc_flutter_threads/screens/settings_screen.dart';
 import 'package:nc_flutter_threads/screens/widgets/new_thread.dart';
 
 import 'widgets/nav_bar.dart';
@@ -17,7 +18,7 @@ class MainNavigationScreen extends StatefulWidget {
 }
 
 class _MainNavigationScreenState extends State<MainNavigationScreen> {
-  int _selectedIndex = 0;
+  int _selectedIndex = 4;
   bool _isNewThreadTap = false;
 
   void _onTap(int index) {
@@ -67,6 +68,10 @@ class _MainNavigationScreenState extends State<MainNavigationScreen> {
           Offstage(
             offstage: _selectedIndex != 4,
             child: const ProfileScreen(),
+          ),
+          Offstage(
+            offstage: _selectedIndex != 5,
+            child: const SettingsScreen(),
           ),
         ],
       ),
