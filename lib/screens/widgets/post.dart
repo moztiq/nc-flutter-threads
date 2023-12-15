@@ -112,7 +112,7 @@ class _PostState extends State<Post> {
                         color: Color(0xff2196f5),
                       ),
                       const SizedBox(
-                        width: Sizes.size96 + Sizes.size72,
+                        width: Sizes.size96 + Sizes.size60,
                       ),
                       Text(
                         widget.info['elapsed_time'],
@@ -133,10 +133,7 @@ class _PostState extends State<Post> {
                   ),
                   Gaps.v5,
                   SizedBox(
-                    width: Sizes.size96 +
-                        Sizes.size96 +
-                        Sizes.size96 +
-                        Sizes.size10,
+                    width: Sizes.size96 + Sizes.size96 + Sizes.size96,
                     child: Text(
                       widget.info['text'],
                       softWrap: true,
@@ -150,7 +147,7 @@ class _PostState extends State<Post> {
                     child: widget.info['images'] != null
                         ? ConstrainedBox(
                             constraints: const BoxConstraints.expand(
-                              width: 340,
+                              width: 323,
                               height: 160,
                             ),
                             child: ListView.separated(
