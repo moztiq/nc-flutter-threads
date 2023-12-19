@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:nc_flutter_threads/constants/gaps.dart';
 import 'package:nc_flutter_threads/constants/sizes.dart';
+import 'package:nc_flutter_threads/utils.dart';
 
 List<Map<String, dynamic>> userList = [
   {
@@ -79,7 +80,7 @@ class SearchScreen extends StatefulWidget {
 }
 
 class _SearchScreenState extends State<SearchScreen> {
-  TextEditingController _textEditingController = TextEditingController();
+  final TextEditingController _textEditingController = TextEditingController();
   List<Map<String, dynamic>> searchList = [];
 
   @override
@@ -123,11 +124,12 @@ class _SearchScreenState extends State<SearchScreen> {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
+        backgroundColor: isDarkMode(context) ? Colors.black : Colors.white,
+        elevation: 0,
         centerTitle: false,
         title: const Text(
           'Search',
           style: TextStyle(
-            color: Colors.black,
             fontSize: Sizes.size32,
             fontWeight: FontWeight.bold,
             // letterSpacing: 0.1,
@@ -147,6 +149,9 @@ class _SearchScreenState extends State<SearchScreen> {
               controller: _textEditingController,
               onSubmitted: _onSubmitted,
               onSuffixTap: _onReset,
+              style: TextStyle(
+                color: isDarkMode(context) ? Colors.white : Colors.black,
+              ),
             ),
           ),
         ),
@@ -218,7 +223,6 @@ class _SearchScreenState extends State<SearchScreen> {
                   child: Text(
                     '${searchList[index]['followers']} followers',
                     style: const TextStyle(
-                      color: Colors.black,
                       fontSize: Sizes.size16,
                     ),
                   ),

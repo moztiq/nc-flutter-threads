@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:nc_flutter_threads/constants/gaps.dart';
 import 'package:nc_flutter_threads/constants/sizes.dart';
+import 'package:nc_flutter_threads/utils.dart';
 
 class PrivacyScreen extends StatefulWidget {
   const PrivacyScreen({super.key});
@@ -25,8 +26,9 @@ class _PrivacyScreenState extends State<PrivacyScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: isDarkMode(context) ? Colors.black : Colors.white,
         elevation: 0,
-        title: Text(
+        title: const Text(
           'Privacy',
           style: TextStyle(
             fontWeight: FontWeight.w700,
@@ -36,10 +38,10 @@ class _PrivacyScreenState extends State<PrivacyScreen> {
       body: ListView(
         children: [
           ListTile(
-            leading: FaIcon(
+            leading: const FaIcon(
               FontAwesomeIcons.shieldHalved,
             ),
-            title: Text(
+            title: const Text(
               'Private profile',
               style: TextStyle(
                 fontSize: Sizes.size18,
@@ -47,16 +49,16 @@ class _PrivacyScreenState extends State<PrivacyScreen> {
               ),
             ),
             trailing: CupertinoSwitch(
-              activeColor: Colors.black,
+              activeColor: isDarkMode(context) ? Colors.white : Colors.black,
               value: _isPrivate,
               onChanged: _onPrivateChanged,
             ),
           ),
           ListTile(
-            leading: FaIcon(
+            leading: const FaIcon(
               FontAwesomeIcons.at,
             ),
-            title: Text(
+            title: const Text(
               'Mentions',
               style: TextStyle(
                 fontSize: Sizes.size18,
@@ -75,14 +77,14 @@ class _PrivacyScreenState extends State<PrivacyScreen> {
                   ),
                 ),
                 Gaps.h16,
-                FaIcon(
+                const FaIcon(
                   CupertinoIcons.chevron_right,
                   size: Sizes.size20,
                 ),
               ],
             ),
           ),
-          ListTile(
+          const ListTile(
             leading: FaIcon(
               FontAwesomeIcons.bellSlash,
               size: Sizes.size20,
@@ -99,7 +101,7 @@ class _PrivacyScreenState extends State<PrivacyScreen> {
               size: Sizes.size20,
             ),
           ),
-          ListTile(
+          const ListTile(
             leading: FaIcon(
               FontAwesomeIcons.eyeSlash,
               size: Sizes.size20,
@@ -116,7 +118,7 @@ class _PrivacyScreenState extends State<PrivacyScreen> {
               size: Sizes.size20,
             ),
           ),
-          ListTile(
+          const ListTile(
             leading: FaIcon(
               FontAwesomeIcons.userGroup,
               size: Sizes.size20,
@@ -133,11 +135,11 @@ class _PrivacyScreenState extends State<PrivacyScreen> {
               size: Sizes.size20,
             ),
           ),
-          Divider(
+          const Divider(
             height: 0,
           ),
           ListTile(
-            title: Text(
+            title: const Text(
               'Other privacy settings',
               style: TextStyle(
                 fontSize: Sizes.size18,
@@ -151,12 +153,12 @@ class _PrivacyScreenState extends State<PrivacyScreen> {
                 fontSize: Sizes.size16,
               ),
             ),
-            trailing: FaIcon(
+            trailing: const FaIcon(
               FontAwesomeIcons.arrowUpRightFromSquare,
               size: Sizes.size16,
             ),
           ),
-          ListTile(
+          const ListTile(
             leading: FaIcon(
               FontAwesomeIcons.circleXmark,
               size: Sizes.size24,
@@ -173,7 +175,7 @@ class _PrivacyScreenState extends State<PrivacyScreen> {
               size: Sizes.size16,
             ),
           ),
-          ListTile(
+          const ListTile(
             leading: FaIcon(
               FontAwesomeIcons.heartCrack,
               size: Sizes.size24,

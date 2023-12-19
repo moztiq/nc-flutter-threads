@@ -5,6 +5,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:nc_flutter_threads/constants/gaps.dart';
 import 'package:nc_flutter_threads/constants/sizes.dart';
 import 'package:nc_flutter_threads/screens/photo_screen.dart';
+import 'package:nc_flutter_threads/utils.dart';
 
 class NewThread extends StatefulWidget {
   const NewThread({super.key});
@@ -46,7 +47,7 @@ class _NewThreadState extends State<NewThread> {
   void _onAttachPhoto() async {
     var result = await Navigator.of(context).push(
       MaterialPageRoute(
-        builder: (context) => PhotoScreen(),
+        builder: (context) => const PhotoScreen(),
       ),
     );
     _photoList = result;
@@ -63,17 +64,15 @@ class _NewThreadState extends State<NewThread> {
     return Container(
       clipBehavior: Clip.hardEdge,
       decoration: BoxDecoration(
-        color: Colors.white,
         borderRadius: BorderRadius.circular(
           Sizes.size20,
         ),
       ),
       child: Scaffold(
-        backgroundColor: Colors.white,
         appBar: AppBar(
             toolbarHeight: Sizes.size64,
             bottom: PreferredSize(
-              preferredSize: Size.fromHeight(
+              preferredSize: const Size.fromHeight(
                 Sizes.size1,
               ),
               child: Container(
@@ -83,7 +82,6 @@ class _NewThreadState extends State<NewThread> {
             ),
             elevation: 0,
             scrolledUnderElevation: 0,
-            backgroundColor: Colors.white,
             title: const Text(
               'New thread',
               style: TextStyle(
@@ -93,7 +91,7 @@ class _NewThreadState extends State<NewThread> {
             ),
             automaticallyImplyLeading: false,
             leading: IconButton(
-              icon: FaIcon(
+              icon: const FaIcon(
                 FontAwesomeIcons.xmark,
                 size: Sizes.size20,
               ),
@@ -102,7 +100,7 @@ class _NewThreadState extends State<NewThread> {
             // GestureDetect
             ),
         body: Padding(
-          padding: EdgeInsets.only(
+          padding: const EdgeInsets.only(
             left: Sizes.size14,
             right: Sizes.size14,
             top: Sizes.size14,
@@ -114,7 +112,7 @@ class _NewThreadState extends State<NewThread> {
                 children: [
                   Column(
                     children: [
-                      SizedBox(
+                      const SizedBox(
                         width: Sizes.size36,
                         child: CircleAvatar(
                           radius: Sizes.size18,
@@ -131,7 +129,7 @@ class _NewThreadState extends State<NewThread> {
                         height: Sizes.size72,
                       ),
                       Gaps.v10,
-                      SizedBox(
+                      const SizedBox(
                         width: Sizes.size20,
                         child: CircleAvatar(
                           radius: Sizes.size18,
@@ -147,7 +145,7 @@ class _NewThreadState extends State<NewThread> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(
+                        const Text(
                           'moztiq', // Replace with the actual username
                           style: TextStyle(
                             fontWeight: FontWeight.bold,
@@ -168,7 +166,7 @@ class _NewThreadState extends State<NewThread> {
                               color: Colors.grey.shade400,
                             ),
                           ),
-                          style: TextStyle(
+                          style: const TextStyle(
                             fontSize: Sizes.size18,
                           ),
                           keyboardType: TextInputType.multiline,
@@ -186,14 +184,15 @@ class _NewThreadState extends State<NewThread> {
                                 children: [
                                   ListView(
                                     shrinkWrap: true,
-                                    physics: NeverScrollableScrollPhysics(),
+                                    physics:
+                                        const NeverScrollableScrollPhysics(),
                                     children: [
                                       for (var entry
                                           in _photoList.asMap().entries)
                                         Stack(
                                           children: [
                                             Container(
-                                              margin: EdgeInsets.only(
+                                              margin: const EdgeInsets.only(
                                                 bottom: Sizes.size4,
                                               ),
                                               clipBehavior: Clip.hardEdge,
@@ -236,7 +235,6 @@ class _NewThreadState extends State<NewThread> {
                 bottom: 0,
                 left: 0,
                 child: Container(
-                  color: Colors.white,
                   child: Row(
                     mainAxisSize: MainAxisSize.min,
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -245,14 +243,16 @@ class _NewThreadState extends State<NewThread> {
                       Text(
                         'Anyone can reply',
                         style: TextStyle(
-                          color: Colors.black45,
+                          color: isDarkMode(context)
+                              ? Colors.white
+                              : Colors.black45,
                           fontSize: Sizes.size16,
                         ),
                       ),
                       AnimatedOpacity(
                         opacity: text.length > 0 ? 1 : 0.5,
-                        duration: Duration(milliseconds: 200),
-                        child: Text(
+                        duration: const Duration(milliseconds: 200),
+                        child: const Text(
                           'Post',
                           style: TextStyle(
                             color: Colors.blue,

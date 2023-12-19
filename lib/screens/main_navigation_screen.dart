@@ -7,6 +7,7 @@ import 'package:nc_flutter_threads/screens/profile_screen.dart';
 import 'package:nc_flutter_threads/screens/search_screen.dart';
 import 'package:nc_flutter_threads/screens/settings_screen.dart';
 import 'package:nc_flutter_threads/screens/widgets/new_thread.dart';
+import 'package:nc_flutter_threads/utils.dart';
 
 import 'widgets/nav_bar.dart';
 
@@ -18,7 +19,7 @@ class MainNavigationScreen extends StatefulWidget {
 }
 
 class _MainNavigationScreenState extends State<MainNavigationScreen> {
-  int _selectedIndex = 4;
+  int _selectedIndex = 0;
   bool _isNewThreadTap = false;
 
   void _onTap(int index) {
@@ -50,7 +51,6 @@ class _MainNavigationScreenState extends State<MainNavigationScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
-      backgroundColor: Colors.white,
       body: Stack(
         children: [
           Offstage(
@@ -76,7 +76,7 @@ class _MainNavigationScreenState extends State<MainNavigationScreen> {
         ],
       ),
       bottomNavigationBar: BottomAppBar(
-        color: Colors.white,
+        color: isDarkMode(context) ? Colors.black : Colors.white,
         elevation: 0,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,

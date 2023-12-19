@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:nc_flutter_threads/constants/gaps.dart';
 import 'package:nc_flutter_threads/constants/sizes.dart';
 import 'package:nc_flutter_threads/screens/widgets/report_modal.dart';
+import 'package:nc_flutter_threads/utils.dart';
 
 class PostMenu extends StatefulWidget {
   const PostMenu({super.key});
@@ -32,7 +33,6 @@ class _PostMenuState extends State<PostMenu> {
         borderRadius: BorderRadius.circular(Sizes.size20),
       ),
       child: Scaffold(
-        backgroundColor: Colors.white,
         body: Padding(
           padding: const EdgeInsets.symmetric(
             horizontal: Sizes.size24,
@@ -45,7 +45,8 @@ class _PostMenuState extends State<PostMenu> {
                   Sizes.size20,
                 ),
                 decoration: BoxDecoration(
-                  color: Colors.grey.shade100,
+                  color:
+                      isDarkMode(context) ? Colors.black : Colors.grey.shade100,
                   borderRadius: const BorderRadius.only(
                     topLeft: Radius.circular(
                       Sizes.size18,
@@ -54,13 +55,17 @@ class _PostMenuState extends State<PostMenu> {
                       Sizes.size18,
                     ),
                   ),
+                  border: Border.all(
+                    color: Colors.white,
+                  ),
                 ),
-                child: const Row(
+                child: Row(
                   children: [
                     Text(
                       'Unfollow',
                       style: TextStyle(
-                        color: Colors.black87,
+                        color:
+                            isDarkMode(context) ? Colors.white : Colors.black87,
                         fontSize: Sizes.size18,
                         fontWeight: FontWeight.w600,
                       ),
@@ -77,7 +82,8 @@ class _PostMenuState extends State<PostMenu> {
                   Sizes.size20,
                 ),
                 decoration: BoxDecoration(
-                  color: Colors.grey.shade100,
+                  color:
+                      isDarkMode(context) ? Colors.black : Colors.grey.shade100,
                   borderRadius: const BorderRadius.only(
                     bottomLeft: Radius.circular(
                       Sizes.size18,
@@ -86,13 +92,17 @@ class _PostMenuState extends State<PostMenu> {
                       Sizes.size18,
                     ),
                   ),
+                  border: Border.all(
+                    color: Colors.white,
+                  ),
                 ),
-                child: const Row(
+                child: Row(
                   children: [
                     Text(
                       'Mute',
                       style: TextStyle(
-                        color: Colors.black87,
+                        color:
+                            isDarkMode(context) ? Colors.white : Colors.black87,
                         fontSize: Sizes.size18,
                         fontWeight: FontWeight.w600,
                       ),
@@ -106,7 +116,8 @@ class _PostMenuState extends State<PostMenu> {
                   Sizes.size20,
                 ),
                 decoration: BoxDecoration(
-                  color: Colors.grey.shade100,
+                  color:
+                      isDarkMode(context) ? Colors.black : Colors.grey.shade100,
                   borderRadius: const BorderRadius.only(
                     topLeft: Radius.circular(
                       Sizes.size18,
@@ -115,13 +126,17 @@ class _PostMenuState extends State<PostMenu> {
                       Sizes.size18,
                     ),
                   ),
+                  border: Border.all(
+                    color: Colors.white,
+                  ),
                 ),
-                child: const Row(
+                child: Row(
                   children: [
                     Text(
                       'Hide',
                       style: TextStyle(
-                        color: Colors.black87,
+                        color:
+                            isDarkMode(context) ? Colors.white : Colors.black87,
                         fontSize: Sizes.size18,
                         fontWeight: FontWeight.w600,
                       ),
@@ -140,7 +155,9 @@ class _PostMenuState extends State<PostMenu> {
                     Sizes.size20,
                   ),
                   decoration: BoxDecoration(
-                    color: Colors.grey.shade100,
+                    color: isDarkMode(context)
+                        ? Colors.black
+                        : Colors.grey.shade100,
                     borderRadius: const BorderRadius.only(
                       bottomLeft: Radius.circular(
                         Sizes.size18,
@@ -148,6 +165,9 @@ class _PostMenuState extends State<PostMenu> {
                       bottomRight: Radius.circular(
                         Sizes.size18,
                       ),
+                    ),
+                    border: Border.all(
+                      color: Colors.white,
                     ),
                   ),
                   child: const Row(

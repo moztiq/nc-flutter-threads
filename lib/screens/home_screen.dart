@@ -4,6 +4,8 @@ import 'package:nc_flutter_threads/constants/gaps.dart';
 import 'package:nc_flutter_threads/constants/sizes.dart';
 import 'package:nc_flutter_threads/screens/widgets/post.dart';
 
+import '../utils.dart';
+
 const list = [
   {
     "profile_pic_url":
@@ -73,6 +75,7 @@ class HomeScreen extends StatelessWidget {
               "assets/images/threads.svg",
               semanticsLabel: 'threads logo',
               width: Sizes.size40,
+              color: isDarkMode(context) ? Colors.white : Colors.black,
             ),
           ),
           Gaps.v48,

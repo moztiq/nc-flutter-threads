@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:nc_flutter_threads/constants/sizes.dart';
 import 'package:nc_flutter_threads/screens/privacy_screen.dart';
+import 'package:nc_flutter_threads/utils.dart';
 
 class SettingsScreen extends StatelessWidget {
   const SettingsScreen({super.key});
@@ -11,8 +12,9 @@ class SettingsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: isDarkMode(context) ? Colors.black : Colors.white,
         elevation: 0,
-        title: Text(
+        title: const Text(
           'Settings',
           style: TextStyle(
             fontWeight: FontWeight.w700,
@@ -21,7 +23,7 @@ class SettingsScreen extends StatelessWidget {
       ),
       body: ListView(
         children: [
-          ListTile(
+          const ListTile(
             leading: FaIcon(
               FontAwesomeIcons.userPlus,
             ),
@@ -33,7 +35,7 @@ class SettingsScreen extends StatelessWidget {
               ),
             ),
           ),
-          ListTile(
+          const ListTile(
             leading: FaIcon(
               FontAwesomeIcons.bell,
             ),
@@ -46,8 +48,8 @@ class SettingsScreen extends StatelessWidget {
             ),
           ),
           ListTile(
-            leading: FaIcon(FontAwesomeIcons.shieldHalved),
-            title: Text(
+            leading: const FaIcon(FontAwesomeIcons.shieldHalved),
+            title: const Text(
               'Privacy',
               style: TextStyle(
                 fontSize: Sizes.size18,
@@ -56,11 +58,11 @@ class SettingsScreen extends StatelessWidget {
             ),
             onTap: () => Navigator.of(context).push(
               MaterialPageRoute(
-                builder: (context) => PrivacyScreen(),
+                builder: (context) => const PrivacyScreen(),
               ),
             ),
           ),
-          ListTile(
+          const ListTile(
             leading: FaIcon(FontAwesomeIcons.circleUser),
             title: Text(
               'Account',
@@ -70,7 +72,7 @@ class SettingsScreen extends StatelessWidget {
               ),
             ),
           ),
-          ListTile(
+          const ListTile(
             leading: FaIcon(FontAwesomeIcons.circleQuestion),
             title: Text(
               'Help',
@@ -80,7 +82,7 @@ class SettingsScreen extends StatelessWidget {
               ),
             ),
           ),
-          ListTile(
+          const ListTile(
             leading: FaIcon(FontAwesomeIcons.circleInfo),
             title: Text(
               'About',
@@ -90,11 +92,11 @@ class SettingsScreen extends StatelessWidget {
               ),
             ),
           ),
-          Divider(
+          const Divider(
             height: 0,
           ),
           ListTile(
-            title: Text(
+            title: const Text(
               'Log out',
               style: TextStyle(
                 color: Colors.blue,
@@ -105,8 +107,8 @@ class SettingsScreen extends StatelessWidget {
             onTap: () => showCupertinoDialog(
               context: context,
               builder: (context) => CupertinoAlertDialog(
-                title: Text("Are you sure?"),
-                content: Text('See you later!'),
+                title: const Text("Are you sure?"),
+                content: const Text('See you later!'),
                 actions: [
                   CupertinoDialogAction(
                     onPressed: () => Navigator.of(context).pop(),

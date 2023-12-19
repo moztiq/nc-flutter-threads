@@ -3,6 +3,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:nc_flutter_threads/constants/gaps.dart';
 import 'package:nc_flutter_threads/constants/sizes.dart';
 import 'package:nc_flutter_threads/screens/widgets/post_menu.dart';
+import 'package:nc_flutter_threads/utils.dart';
 
 class Post extends StatefulWidget {
   final Map<String, dynamic> info;
@@ -18,17 +19,16 @@ class _PostState extends State<Post> {
     showModalBottomSheet(
       scrollControlDisabledMaxHeightRatio: 0.45,
       elevation: 0,
-      backgroundColor: Colors.white,
       showDragHandle: true,
       context: context,
-      builder: (context) => PostMenu(),
+      builder: (context) => const PostMenu(),
     );
   }
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(
+      padding: const EdgeInsets.symmetric(
         horizontal: Sizes.size12,
         vertical: Sizes.size20,
       ),
@@ -81,11 +81,13 @@ class _PostState extends State<Post> {
                   ),
                   Gaps.v10,
                   Container(
-                    padding: EdgeInsets.symmetric(
+                    padding: const EdgeInsets.symmetric(
                       vertical: Sizes.size1,
                     ),
                     width: Sizes.size1,
-                    color: Colors.black.withOpacity(0.2),
+                    color: isDarkMode(context)
+                        ? Colors.white
+                        : Colors.black.withOpacity(0.2),
                     // height: double.infinity,
                     height: widget.info['images'] != null ? 250 : 70,
                   )
@@ -117,14 +119,16 @@ class _PostState extends State<Post> {
                       Text(
                         widget.info['elapsed_time'],
                         style: TextStyle(
-                          color: Colors.grey.shade600,
+                          color: isDarkMode(context)
+                              ? Colors.grey.shade200
+                              : Colors.grey.shade600,
                           fontSize: Sizes.size16,
                         ),
                       ),
                       Gaps.h20,
                       IconButton(
                         onPressed: _onMenuPressed,
-                        icon: FaIcon(
+                        icon: const FaIcon(
                           FontAwesomeIcons.ellipsis,
                           size: Sizes.size20,
                         ),
@@ -173,26 +177,30 @@ class _PostState extends State<Post> {
                         : null,
                   ),
                   Gaps.v20,
-                  const Row(
+                  Row(
                     children: [
                       FaIcon(
                         FontAwesomeIcons.heart,
-                        color: Colors.black87,
+                        color:
+                            isDarkMode(context) ? Colors.white : Colors.black87,
                       ),
                       Gaps.h24,
                       FaIcon(
                         FontAwesomeIcons.comment,
-                        color: Colors.black87,
+                        color:
+                            isDarkMode(context) ? Colors.white : Colors.black87,
                       ),
                       Gaps.h24,
                       FaIcon(
                         FontAwesomeIcons.arrowsRotate,
-                        color: Colors.black87,
+                        color:
+                            isDarkMode(context) ? Colors.white : Colors.black87,
                       ),
                       Gaps.h24,
                       FaIcon(
                         FontAwesomeIcons.paperPlane,
-                        color: Colors.black87,
+                        color:
+                            isDarkMode(context) ? Colors.white : Colors.black87,
                       ),
                     ],
                   )
@@ -266,14 +274,14 @@ class _PostState extends State<Post> {
                               ),
                               Positioned(
                                 left: 15,
-                                top: 6,
+                                top: 8,
                                 child: Container(
                                   decoration: BoxDecoration(
                                     color: Colors.black,
                                     shape: BoxShape.circle,
                                     border: Border.all(
                                       color: Colors.white,
-                                      width: Sizes.size4,
+                                      width: Sizes.size2,
                                     ),
                                   ),
                                   child: ClipOval(
@@ -295,9 +303,11 @@ class _PostState extends State<Post> {
               Text(
                 '${widget.info['reply_count']} replies · ${widget.info['like_count']} likes',
                 style: TextStyle(
-                  color: Colors.black.withOpacity(
-                    0.5,
-                  ),
+                  color: isDarkMode(context)
+                      ? Colors.white
+                      : Colors.black.withOpacity(
+                          0.5,
+                        ),
                 ),
               )
             ],

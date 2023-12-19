@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:nc_flutter_threads/constants/gaps.dart';
 import 'package:nc_flutter_threads/constants/sizes.dart';
+import 'package:nc_flutter_threads/utils.dart';
 
 final tabs = [
   'All',
@@ -77,12 +78,12 @@ class ActivityScreen extends StatelessWidget {
       length: tabs.length,
       child: Scaffold(
         appBar: AppBar(
+          backgroundColor: isDarkMode(context) ? Colors.black : Colors.white,
           elevation: 0,
           centerTitle: false,
-          title: Text(
+          title: const Text(
             'Activity',
             style: TextStyle(
-              color: Colors.black,
               fontSize: Sizes.size32,
               fontWeight: FontWeight.bold,
               // letterSpacing: 0.1,
@@ -91,17 +92,18 @@ class ActivityScreen extends StatelessWidget {
           bottom: TabBar(
             padding: EdgeInsets.zero,
             splashFactory: NoSplash.splashFactory,
-            dividerColor: Colors.white,
+            dividerColor: isDarkMode(context) ? Colors.black : Colors.white,
             isScrollable: true,
             indicator: BoxDecoration(
-              color: Colors.black,
+              color: isDarkMode(context) ? Colors.white : Colors.black,
               borderRadius: BorderRadius.circular(
                 Sizes.size10,
               ),
             ),
-            labelColor: Colors.white,
-            unselectedLabelColor: Colors.black,
-            labelPadding: EdgeInsets.symmetric(
+            labelColor: isDarkMode(context) ? Colors.black : Colors.white,
+            unselectedLabelColor:
+                isDarkMode(context) ? Colors.white : Colors.black,
+            labelPadding: const EdgeInsets.symmetric(
               horizontal: Sizes.size5,
             ),
             tabs: [
@@ -111,7 +113,8 @@ class ActivityScreen extends StatelessWidget {
                     width: Sizes.size96 + Sizes.size24,
                     decoration: BoxDecoration(
                       border: Border.all(
-                        // color: Colors.grey.shade400,
+                        color:
+                            isDarkMode(context) ? Colors.white : Colors.black,
                         width: Sizes.size1,
                       ),
                       borderRadius: BorderRadius.circular(
@@ -158,7 +161,7 @@ class ActivityScreen extends StatelessWidget {
                                 shape: BoxShape.circle,
                                 border: Border.all(
                                   color: Colors.white,
-                                  width: Sizes.size2,
+                                  width: Sizes.size1,
                                 ),
                               ),
                               width: Sizes.size24,
@@ -181,16 +184,6 @@ class ActivityScreen extends StatelessWidget {
                                   size: Sizes.size12,
                                 ),
                               ),
-                              // child: const Center(
-                              //   child: Text(
-                              //     '+',
-                              //     style: TextStyle(
-                              //       fontSize: Sizes.size14,
-                              //       fontWeight: FontWeight.w600,
-                              //       color: Colors.white,
-                              //     ),
-                              //   ),
-                              // ),
                             ),
                           )
                         ],
@@ -199,7 +192,7 @@ class ActivityScreen extends StatelessWidget {
                         children: [
                           Text(
                             activityList[index]['id'],
-                            style: TextStyle(
+                            style: const TextStyle(
                               fontWeight: FontWeight.bold,
                             ),
                           ),
@@ -217,7 +210,7 @@ class ActivityScreen extends StatelessWidget {
                       trailing: activityList[index]['isFollowed']
                           ? GestureDetector(
                               child: Container(
-                                padding: EdgeInsets.symmetric(
+                                padding: const EdgeInsets.symmetric(
                                   vertical: Sizes.size5,
                                   horizontal: Sizes.size24,
                                 ),
@@ -229,7 +222,7 @@ class ActivityScreen extends StatelessWidget {
                                     color: Colors.grey.shade400,
                                   ),
                                 ),
-                                child: Text(
+                                child: const Text(
                                   'Following',
                                   style: TextStyle(
                                     fontSize: Sizes.size16,
@@ -248,8 +241,7 @@ class ActivityScreen extends StatelessWidget {
                         Expanded(
                           child: Text(
                             '${activityList[index]['description']}',
-                            style: TextStyle(
-                              color: Colors.black,
+                            style: const TextStyle(
                               fontSize: Sizes.size16,
                             ),
                           ),
@@ -272,7 +264,7 @@ class ActivityScreen extends StatelessWidget {
               ),
             ),
             for (var tab in tabs.skip(1))
-              Center(
+              const Center(
                 child: Text('Nothing to see here yet'),
               )
           ],

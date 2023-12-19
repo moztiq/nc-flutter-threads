@@ -5,6 +5,7 @@ import 'package:nc_flutter_threads/constants/sizes.dart';
 import 'package:nc_flutter_threads/screens/settings_screen.dart';
 import 'package:nc_flutter_threads/screens/widgets/persistent_tabbar.dart';
 import 'package:nc_flutter_threads/screens/widgets/post.dart';
+import 'package:nc_flutter_threads/utils.dart';
 
 const list = [
   {
@@ -70,7 +71,7 @@ class ProfileScreen extends StatefulWidget {
 class _ProfileScreenState extends State<ProfileScreen> {
   void _onSettingPressed() {
     Navigator.of(context)
-        .push(MaterialPageRoute(builder: (context) => SettingsScreen()));
+        .push(MaterialPageRoute(builder: (context) => const SettingsScreen()));
   }
 
   @override
@@ -81,20 +82,21 @@ class _ProfileScreenState extends State<ProfileScreen> {
         child: NestedScrollView(
           headerSliverBuilder: (context, index) => [
             SliverAppBar(
-              backgroundColor: Colors.white,
+              backgroundColor:
+                  isDarkMode(context) ? Colors.black : Colors.white,
               elevation: 0,
-              leading: Center(
+              leading: const Center(
                 child: FaIcon(
                   FontAwesomeIcons.globe,
                 ),
               ),
               actions: [
-                FaIcon(
+                const FaIcon(
                   FontAwesomeIcons.instagram,
                 ),
                 IconButton(
                   onPressed: _onSettingPressed,
-                  icon: FaIcon(
+                  icon: const FaIcon(
                     FontAwesomeIcons.barsStaggered,
                   ),
                 )
@@ -115,7 +117,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text(
+                            const Text(
                               'Moz',
                               style: TextStyle(
                                 fontSize: Sizes.size28,
@@ -124,20 +126,22 @@ class _ProfileScreenState extends State<ProfileScreen> {
                             ),
                             Row(
                               children: [
-                                Text(
+                                const Text(
                                   'moztiq',
                                   style: TextStyle(
-                                    color: Colors.black,
                                     fontSize: Sizes.size16,
                                   ),
                                 ),
                                 Gaps.h8,
                                 Container(
-                                  padding: EdgeInsets.symmetric(
-                                      vertical: Sizes.size4,
-                                      horizontal: Sizes.size12),
+                                  padding: const EdgeInsets.symmetric(
+                                    vertical: Sizes.size4,
+                                    horizontal: Sizes.size12,
+                                  ),
                                   decoration: BoxDecoration(
-                                    color: Colors.grey.shade100,
+                                    color: isDarkMode(context)
+                                        ? Colors.grey.shade500
+                                        : Colors.grey.shade100,
                                     borderRadius: BorderRadius.circular(
                                       Sizes.size12,
                                     ),
@@ -145,14 +149,16 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                   child: Text(
                                     'threads.net',
                                     style: TextStyle(
-                                      color: Colors.grey.shade600,
+                                      color: isDarkMode(context)
+                                          ? Colors.black
+                                          : Colors.grey.shade600,
                                     ),
                                   ),
                                 )
                               ],
                             ),
                             Gaps.v12,
-                            Text(
+                            const Text(
                               'Life is a journey',
                               style: TextStyle(
                                 color: Colors.black,
@@ -162,11 +168,11 @@ class _ProfileScreenState extends State<ProfileScreen> {
                             Gaps.v12,
                             Row(
                               children: [
-                                SizedBox(
+                                const SizedBox(
                                   width: 60,
                                   child: Stack(
                                     children: [
-                                      const CircleAvatar(
+                                      CircleAvatar(
                                         radius: Sizes.size12,
                                         backgroundImage: NetworkImage(
                                           'https://i.pinimg.com/280x280_RS/c4/92/43/c49243b39355f3d6e7c5ae4608e375a3.jpg',
@@ -174,7 +180,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                       ),
                                       Positioned(
                                         right: Sizes.size20,
-                                        child: const CircleAvatar(
+                                        child: CircleAvatar(
                                           radius: Sizes.size12,
                                           backgroundImage: NetworkImage(
                                             'https://image.cine21.com/resize/cine21/still/2017/1218/10_39_22__5a371c4aaae6b[X252,310].jpg',
@@ -187,8 +193,11 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                 Text(
                                   '2 followers',
                                   style: TextStyle(
-                                      fontSize: Sizes.size16,
-                                      color: Colors.grey.shade600),
+                                    fontSize: Sizes.size16,
+                                    color: isDarkMode(context)
+                                        ? Colors.grey.shade200
+                                        : Colors.grey.shade600,
+                                  ),
                                 ),
                               ],
                             )
@@ -207,7 +216,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       children: [
                         Expanded(
                           child: Container(
-                            padding: EdgeInsets.all(
+                            padding: const EdgeInsets.all(
                               Sizes.size10,
                             ),
                             decoration: BoxDecoration(
@@ -218,7 +227,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                 color: Colors.grey.shade400,
                               ),
                             ),
-                            child: Center(
+                            child: const Center(
                               child: Text(
                                 'Edit Profile',
                                 style: TextStyle(
@@ -232,7 +241,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         Gaps.h20,
                         Expanded(
                           child: Container(
-                            padding: EdgeInsets.all(
+                            padding: const EdgeInsets.all(
                               Sizes.size10,
                             ),
                             decoration: BoxDecoration(
@@ -243,7 +252,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                 color: Colors.grey.shade400,
                               ),
                             ),
-                            child: Center(
+                            child: const Center(
                               child: Text(
                                 'Share profile',
                                 style: TextStyle(
@@ -281,7 +290,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   ],
                 ),
               ),
-              Center(
+              const Center(
                 child: Text('No replies'),
               ),
             ],
