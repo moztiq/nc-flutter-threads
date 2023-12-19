@@ -1,11 +1,15 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:go_router/go_router.dart';
 import 'package:nc_flutter_threads/constants/sizes.dart';
 import 'package:nc_flutter_threads/screens/privacy_screen.dart';
 import 'package:nc_flutter_threads/utils.dart';
 
 class SettingsScreen extends StatelessWidget {
+  static const String routeName = "settings";
+  static const String routeURL = "/settings";
+
   const SettingsScreen({super.key});
 
   @override
@@ -28,7 +32,7 @@ class SettingsScreen extends StatelessWidget {
               FontAwesomeIcons.userPlus,
             ),
             title: Text(
-              'Follow and invite friedns',
+              'Follow and invite friends',
               style: TextStyle(
                 fontSize: Sizes.size18,
                 fontWeight: FontWeight.w600,
@@ -56,11 +60,7 @@ class SettingsScreen extends StatelessWidget {
                 fontWeight: FontWeight.w600,
               ),
             ),
-            onTap: () => Navigator.of(context).push(
-              MaterialPageRoute(
-                builder: (context) => const PrivacyScreen(),
-              ),
-            ),
+            onTap: () => context.pushNamed(PrivacyScreen.routeName),
           ),
           const ListTile(
             leading: FaIcon(FontAwesomeIcons.circleUser),

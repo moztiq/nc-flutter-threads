@@ -6,6 +6,9 @@ import 'package:nc_flutter_threads/constants/sizes.dart';
 import 'package:nc_flutter_threads/utils.dart';
 
 class PrivacyScreen extends StatefulWidget {
+  static const String routeName = "privacy";
+  static const String routeURL = "privacy";
+
   const PrivacyScreen({super.key});
 
   @override

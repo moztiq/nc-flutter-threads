@@ -20,7 +20,7 @@ List<Map<String, dynamic>> activityList = [
     "name": "Mentioned you",
     "description": "Hear's thread you should follow if you love botany @jane",
     "image":
-        "https://i.pinimg.com/280x280_RS/c4/92/43/c49243b39355f3d6e7c5ae4608e375a3.jpg",
+        "https://media.istockphoto.com/id/1311977351/photo/focused-on-success-and-growth.jpg?s=612x612&w=0&k=20&c=ZC4825QyArXmHB_quCjr184x1xm_mEDKGq3-52KVh7w=",
     "isFollowed": false,
     "time": "4h",
     "icon": FontAwesomeIcons.arrowLeft,
@@ -31,7 +31,7 @@ List<Map<String, dynamic>> activityList = [
     "name": "Starting out my gardening club with..",
     "description": "Count me in!",
     "image":
-        "https://i.pinimg.com/280x280_RS/1b/ed/d6/1bedd61fca441a55809ed9fe5c268057.jpg",
+        "https://media.istockphoto.com/id/1420486889/photo/candid-portrait-of-young-middle-eastern-digital-native.jpg?s=612x612&w=0&k=20&c=SV7ZhKg7qCeL6oYZGBaIxqfTTrQZu08kndvIKqdL_PI=",
     "isFollowed": false,
     "time": "4h",
     "icon": FontAwesomeIcons.recycle,
@@ -41,7 +41,7 @@ List<Map<String, dynamic>> activityList = [
     "id": "axellevanmoer",
     "name": "Followed you",
     "image":
-        "https://i.pinimg.com/280x280_RS/6f/ba/eb/6fbaeb9cbc9a2d1ad1aaa3d1dd7e51d8.jpg",
+        "https://media.istockphoto.com/id/1432226243/photo/happy-young-woman-of-color-smiling-at-the-camera-in-a-studio.jpg?s=612x612&w=0&k=20&c=rk75Rl4PTtXbEyj7RgSz_pJPlgEpUEsgcJVNGQZbrMw=",
     "isFollowed": true,
     "time": "5h",
     "icon": FontAwesomeIcons.paperPlane,
@@ -51,7 +51,7 @@ List<Map<String, dynamic>> activityList = [
     "id": "Janne",
     "name": "Definitely broken!",
     "image":
-        "https://i.pinimg.com/280x280_RS/1c/48/4a/1c484ae2c8ad6ee037e6ff8fa8fa8d4b.jpg",
+        "https://media.istockphoto.com/id/1388913352/photo/lovely-business-man-attending-a-meeting-online-writing-stuff-down.jpg?s=612x612&w=0&k=20&c=xkrlDeFMcPOoelyiWd_FwuFOuGi23Fd-t18CxR15okE=",
     "isFollowed": false,
     "time": "5h",
     "icon": FontAwesomeIcons.dailymotion,
@@ -61,7 +61,7 @@ List<Map<String, dynamic>> activityList = [
     "id": "TheRealWhisperer",
     "name": "Nice to meet you",
     "image":
-        "https://i.pinimg.com/280x280_RS/37/47/e7/3747e7aee5dea96b12e4fb867c85ef89.jpg",
+        "https://media.istockphoto.com/id/1339296498/photo/beautiful-mid-adult-woman-walking-and-texting-message-on-mobile-phone-outside-business-center.jpg?s=612x612&w=0&k=20&c=YW6PQ28LuVnzqhJh-s3TA1SogZ8uotTBdDU1Mr1a2sY=",
     "isFollowed": false,
     "time": "7h",
     "icon": FontAwesomeIcons.oilCan,
@@ -70,6 +70,9 @@ List<Map<String, dynamic>> activityList = [
 ];
 
 class ActivityScreen extends StatelessWidget {
+  static const String routeName = "activity";
+  static const String routeURL = "/activity";
+
   const ActivityScreen({super.key});
 
   @override

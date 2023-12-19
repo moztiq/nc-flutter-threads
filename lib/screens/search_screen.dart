@@ -11,7 +11,7 @@ List<Map<String, dynamic>> userList = [
     "name": "Cheri Mello",
     "followers": "1.6K",
     "image":
-        "https://i.pinimg.com/280x280_RS/c4/92/43/c49243b39355f3d6e7c5ae4608e375a3.jpg",
+        "https://media.istockphoto.com/id/1311977351/photo/focused-on-success-and-growth.jpg?s=612x612&w=0&k=20&c=ZC4825QyArXmHB_quCjr184x1xm_mEDKGq3-52KVh7w=",
     "isFollowed": false,
   },
   {
@@ -19,7 +19,7 @@ List<Map<String, dynamic>> userList = [
     "name": "Rada Yash",
     "followers": "532",
     "image":
-        "https://i.pinimg.com/280x280_RS/1b/ed/d6/1bedd61fca441a55809ed9fe5c268057.jpg",
+        "https://media.istockphoto.com/id/1420486889/photo/candid-portrait-of-young-middle-eastern-digital-native.jpg?s=612x612&w=0&k=20&c=SV7ZhKg7qCeL6oYZGBaIxqfTTrQZu08kndvIKqdL_PI=",
     "isFollowed": false,
   },
   {
@@ -27,7 +27,7 @@ List<Map<String, dynamic>> userList = [
     "name": "Xellie De Coolste",
     "followers": "6.1K",
     "image":
-        "https://i.pinimg.com/280x280_RS/6f/ba/eb/6fbaeb9cbc9a2d1ad1aaa3d1dd7e51d8.jpg",
+        "https://media.istockphoto.com/id/1432226243/photo/happy-young-woman-of-color-smiling-at-the-camera-in-a-studio.jpg?s=612x612&w=0&k=20&c=rk75Rl4PTtXbEyj7RgSz_pJPlgEpUEsgcJVNGQZbrMw=",
     "isFollowed": false,
   },
   {
@@ -35,7 +35,7 @@ List<Map<String, dynamic>> userList = [
     "name": "KnutselJanne",
     "followers": "6.1K",
     "image":
-        "https://i.pinimg.com/280x280_RS/1c/48/4a/1c484ae2c8ad6ee037e6ff8fa8fa8d4b.jpg",
+        "https://media.istockphoto.com/id/1388913352/photo/lovely-business-man-attending-a-meeting-online-writing-stuff-down.jpg?s=612x612&w=0&k=20&c=xkrlDeFMcPOoelyiWd_FwuFOuGi23Fd-t18CxR15okE=",
     "isFollowed": false,
   },
   {
@@ -43,7 +43,7 @@ List<Map<String, dynamic>> userList = [
     "name": "Maddie Lay",
     "followers": "423",
     "image":
-        "https://i.pinimg.com/280x280_RS/37/47/e7/3747e7aee5dea96b12e4fb867c85ef89.jpg",
+        "https://media.istockphoto.com/id/1339296498/photo/beautiful-mid-adult-woman-walking-and-texting-message-on-mobile-phone-outside-business-center.jpg?s=612x612&w=0&k=20&c=YW6PQ28LuVnzqhJh-s3TA1SogZ8uotTBdDU1Mr1a2sY=",
     "isFollowed": false,
   },
   {
@@ -51,7 +51,7 @@ List<Map<String, dynamic>> userList = [
     "name": "Hayden Sloan",
     "followers": "12.1K",
     "image":
-        "https://i.pinimg.com/280x280_RS/29/54/ec/2954ec3f187d405bc7ba3e5849e6c77e.jpg",
+        "https://media.istockphoto.com/id/1319763415/photo/african-mid-woman-using-smartphone-at-home.jpg?s=612x612&w=0&k=20&c=vSYvylj1ykCwdIZ5ZHg0R2-NEzCXDkNjgBA2CPBVtDM=",
     "isFollowed": false,
   },
   {
@@ -59,7 +59,7 @@ List<Map<String, dynamic>> userList = [
     "name": "Cartoon Geek",
     "followers": "4K",
     "image":
-        "https://i.pinimg.com/280x280_RS/84/43/6e/84436e9ce714da620c052d08fefe66d6.jpg",
+        "https://media.istockphoto.com/id/1399395748/photo/cheerful-business-woman-with-glasses-posing-with-her-hands-under-her-face-showing-her-smile.jpg?s=612x612&w=0&k=20&c=EbnuxLE-RJP9a08h2zjfgKUSFqmjGubk0p6zwJHnbrI=",
     "isFollowed": false,
   },
   {
@@ -67,12 +67,15 @@ List<Map<String, dynamic>> userList = [
     "name": "Bucky Bear",
     "followers": "98K",
     "image":
-        "https://i.pinimg.com/280x280_RS/de/17/f2/de17f204820b9fedadb53da04dcbcb93.jpg",
+        "https://media.istockphoto.com/id/1289220949/photo/successful-smiling-woman-wearing-eyeglasses-on-grey-wall.jpg?s=612x612&w=0&k=20&c=BjyPRn28F3mc6IiBCf4Ko-lFZisaNUYXBBnAcO47ZgE=",
     "isFollowed": false,
   },
 ];
 
 class SearchScreen extends StatefulWidget {
+  static const String routeName = "search";
+  static const String routeURL = "/search";
+
   const SearchScreen({super.key});
 
   @override

@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:nc_flutter_threads/screens/activity_screen.dart';
-import 'package:nc_flutter_threads/screens/main_navigation_screen.dart';
-import 'package:nc_flutter_threads/screens/profile_screen.dart';
+import 'package:nc_flutter_threads/router.dart';
 
 void main() {
   runApp(const App());
@@ -13,8 +11,10 @@ class App extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp.router(
+      routerConfig: router,
       themeMode: ThemeMode.system,
+      debugShowCheckedModeBanner: false,
       title: 'Threads clone',
       theme: ThemeData(
         brightness: Brightness.light,
@@ -33,7 +33,7 @@ class App extends StatelessWidget {
           cursorColor: Colors.white,
         ),
       ),
-      home: const MainNavigationScreen(),
+      // home: const MainNavigationScreen(tab: 'home'),
     );
   }
 }

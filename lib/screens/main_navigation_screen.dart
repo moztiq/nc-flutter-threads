@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:go_router/go_router.dart';
 import 'package:nc_flutter_threads/constants/sizes.dart';
 import 'package:nc_flutter_threads/screens/activity_screen.dart';
 import 'package:nc_flutter_threads/screens/home_screen.dart';
@@ -12,17 +13,31 @@ import 'package:nc_flutter_threads/utils.dart';
 import 'widgets/nav_bar.dart';
 
 class MainNavigationScreen extends StatefulWidget {
-  const MainNavigationScreen({super.key});
+  static const String routeName = "mainNavigation";
+
+  final String tab;
+
+  const MainNavigationScreen({super.key, required this.tab});
 
   @override
   State<MainNavigationScreen> createState() => _MainNavigationScreenState();
 }
 
 class _MainNavigationScreenState extends State<MainNavigationScreen> {
-  int _selectedIndex = 0;
+  List<String> _tabs = [
+    "home",
+    "search",
+    "xxx",
+    "activity",
+    "profile",
+    "settings"
+  ];
+  late int _selectedIndex = _tabs.indexOf(widget.tab);
+
   bool _isNewThreadTap = false;
 
   void _onTap(int index) {
+    context.go("/${_tabs[index]}");
     setState(() {
       _selectedIndex = index;
     });
