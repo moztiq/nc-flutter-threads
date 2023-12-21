@@ -278,7 +278,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
             SliverPersistentHeader(
               delegate: PersistentTabBar(),
               pinned: true,
-              // pinned: true,
             ),
           ],
           body: TabBarView(

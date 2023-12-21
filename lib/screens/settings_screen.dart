@@ -4,7 +4,9 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:go_router/go_router.dart';
 import 'package:nc_flutter_threads/constants/sizes.dart';
 import 'package:nc_flutter_threads/screens/privacy_screen.dart';
+import 'package:nc_flutter_threads/screens/view_models/dark_mode_config_vm.dart';
 import 'package:nc_flutter_threads/utils.dart';
+import 'package:provider/provider.dart';
 
 class SettingsScreen extends StatelessWidget {
   static const String routeName = "settings";
@@ -15,6 +17,7 @@ class SettingsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: isDarkMode(context) ? Colors.black : Colors.white,
       appBar: AppBar(
         backgroundColor: isDarkMode(context) ? Colors.black : Colors.white,
         elevation: 0,
@@ -27,6 +30,18 @@ class SettingsScreen extends StatelessWidget {
       ),
       body: ListView(
         children: [
+          SwitchListTile.adaptive(
+            title: Text(
+              'Dark Mode',
+              style: TextStyle(
+                fontSize: Sizes.size18,
+                fontWeight: FontWeight.w600,
+              ),
+            ),
+            value: context.watch<DarkModeConfigViewModel>().isDarkMode,
+            onChanged: (value) =>
+                context.read<DarkModeConfigViewModel>().setDarkMode(value),
+          ),
           const ListTile(
             leading: FaIcon(
               FontAwesomeIcons.userPlus,
