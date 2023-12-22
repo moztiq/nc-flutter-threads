@@ -1,21 +1,21 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:go_router/go_router.dart';
 import 'package:nc_flutter_threads/constants/sizes.dart';
 import 'package:nc_flutter_threads/screens/privacy_screen.dart';
 import 'package:nc_flutter_threads/screens/view_models/dark_mode_config_vm.dart';
 import 'package:nc_flutter_threads/utils.dart';
-import 'package:provider/provider.dart';
 
-class SettingsScreen extends StatelessWidget {
+class SettingsScreen extends ConsumerWidget {
   static const String routeName = "settings";
   static const String routeURL = "/settings";
 
   const SettingsScreen({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
       backgroundColor: isDarkMode(context) ? Colors.black : Colors.white,
       appBar: AppBar(
@@ -38,9 +38,10 @@ class SettingsScreen extends StatelessWidget {
                 fontWeight: FontWeight.w600,
               ),
             ),
-            value: context.watch<DarkModeConfigViewModel>().isDarkMode,
-            onChanged: (value) =>
-                context.read<DarkModeConfigViewModel>().setDarkMode(value),
+            value: ref.watch(darkModeConfigProvider).isDarkMode,
+            onChanged: (value) {
+              ref.read(darkModeConfigProvider.notifier).setDarkMode(value);
+            },
           ),
           const ListTile(
             leading: FaIcon(

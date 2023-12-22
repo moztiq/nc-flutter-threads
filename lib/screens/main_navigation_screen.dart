@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:go_router/go_router.dart';
 import 'package:nc_flutter_threads/constants/sizes.dart';
@@ -12,7 +13,7 @@ import 'package:nc_flutter_threads/utils.dart';
 
 import 'widgets/nav_bar.dart';
 
-class MainNavigationScreen extends StatefulWidget {
+class MainNavigationScreen extends ConsumerStatefulWidget {
   static const String routeName = "mainNavigation";
 
   final String tab;
@@ -20,10 +21,10 @@ class MainNavigationScreen extends StatefulWidget {
   const MainNavigationScreen({super.key, required this.tab});
 
   @override
-  State<MainNavigationScreen> createState() => _MainNavigationScreenState();
+  MainNavigationScreenState createState() => MainNavigationScreenState();
 }
 
-class _MainNavigationScreenState extends State<MainNavigationScreen> {
+class MainNavigationScreenState extends ConsumerState<MainNavigationScreen> {
   List<String> _tabs = [
     "home",
     "search",
