@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "338796682336",
+    "project_id": "moz-nc-threads",
+    "storage_bucket": "moz-nc-threads.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:338796682336:android:ff225083237001e141f705",
+        "android_client_info": {
+          "package_name": "com.example.nc_flutter_threads"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBfrCtGpueqt_671hzE8vTzfGBkegJSJnY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -5,7 +5,9 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:go_router/go_router.dart';
 import 'package:nc_flutter_threads/constants/sizes.dart';
 import 'package:nc_flutter_threads/screens/privacy_screen.dart';
+import 'package:nc_flutter_threads/screens/repos/authentication_repo.dart';
 import 'package:nc_flutter_threads/screens/view_models/dark_mode_config_vm.dart';
+import 'package:nc_flutter_threads/screens/view_models/login_view_model.dart';
 import 'package:nc_flutter_threads/utils.dart';
 
 class SettingsScreen extends ConsumerWidget {
@@ -131,7 +133,9 @@ class SettingsScreen extends ConsumerWidget {
                     child: const Text('No'),
                   ),
                   CupertinoDialogAction(
-                    onPressed: () => Navigator.of(context).pop(),
+                    onPressed: () {
+                      ref.read(authRepo).signOut();
+                    },
                     isDestructiveAction: true,
                     child: const Text('Yes'),
                   ),
