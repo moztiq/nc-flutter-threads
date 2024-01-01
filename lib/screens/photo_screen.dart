@@ -1,4 +1,7 @@
+import 'dart:io';
+
 import 'package:camera/camera.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:nc_flutter_threads/constants/gaps.dart';
@@ -17,6 +20,8 @@ class _PhotoScreenState extends State<PhotoScreen>
   bool _hasPermission = false;
 
   bool _isSelfieMode = false;
+
+  late final bool _noCamera = kDebugMode && Platform.isIOS;
 
   late final AnimationController _buttonAnimationController =
       AnimationController(
@@ -70,7 +75,13 @@ class _PhotoScreenState extends State<PhotoScreen>
   @override
   void initState() {
     super.initState();
-    initPermissions();
+    if (!_noCamera) {
+      initPermissions();
+    } else {
+      setState(() {
+        _hasPermission = true;
+      });
+    }
     WidgetsBinding.instance.addObserver(this);
   }
 
@@ -92,13 +103,14 @@ class _PhotoScreenState extends State<PhotoScreen>
   @override
   void dispose() {
     _buttonAnimationController.dispose();
-    _cameraController.dispose();
+    if (!_noCamera) _cameraController.dispose();
 
     super.dispose();
   }
 
   @override
   Future<void> didChangeAppLifecycleState(AppLifecycleState state) async {
+    if (_noCamera) return;
     if (!_hasPermission) return;
     if (!_cameraController.value.isInitialized) return;
 
@@ -127,7 +139,8 @@ class _PhotoScreenState extends State<PhotoScreen>
         backgroundColor: Colors.black,
         body: SizedBox(
           width: MediaQuery.of(context).size.width,
-          child: !_hasPermission || !_cameraController.value.isInitialized
+          child: !_noCamera &&
+                  (!_hasPermission || !_cameraController.value.isInitialized)
               ? Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -146,21 +159,23 @@ class _PhotoScreenState extends State<PhotoScreen>
                     Expanded(
                       child: Stack(
                         children: [
-                          Container(
-                            decoration: BoxDecoration(
-                              color: Colors.black,
-                              borderRadius: BorderRadius.only(
-                                bottomLeft: Radius.circular(
-                                  Sizes.size32,
-                                ),
-                                bottomRight: Radius.circular(
-                                  Sizes.size32,
+                          if (!_noCamera &&
+                              _cameraController.value.isInitialized)
+                            Container(
+                              decoration: BoxDecoration(
+                                color: Colors.black,
+                                borderRadius: BorderRadius.only(
+                                  bottomLeft: Radius.circular(
+                                    Sizes.size32,
+                                  ),
+                                  bottomRight: Radius.circular(
+                                    Sizes.size32,
+                                  ),
                                 ),
                               ),
+                              child: CameraPreview(_cameraController),
+                              clipBehavior: Clip.hardEdge,
                             ),
-                            child: CameraPreview(_cameraController),
-                            clipBehavior: Clip.hardEdge,
-                          ),
                           Positioned(
                             bottom: Sizes.size40,
                             width: MediaQuery.of(context).size.width,
